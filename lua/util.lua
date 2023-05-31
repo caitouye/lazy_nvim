@@ -218,7 +218,8 @@ function M.lsp_disable(server, cond)
 end
 
 function M.is_dh3(path)
-	if string.find(path, "dh3") or string.find(path, "dh25") then return true end
+	-- if string.find(path, "dh3") or string.find(path, "dh25") then return true end
+	if string.find(path, "dh3") or string.find(path, "dh25") or string.find(path, "dhxy") then return true end
 end
 
 function M.is_gbk(path)

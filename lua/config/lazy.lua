@@ -27,6 +27,9 @@ require("lazy").setup {
 		version = false, -- always use the latest git commit
 		-- version = "*", -- try installing the latest stable version for plugins that support semver
 	},
+	git = {
+		timeout = 600, -- kill processes that take more than 10 minutes
+	},
 	install = {},
 	checker = {
 		enabled = true, -- automatically check for plugin updates
