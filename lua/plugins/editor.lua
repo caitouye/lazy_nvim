@@ -460,7 +460,6 @@ return {
 				},
 				view = {
 					width = 30,
-					hide_root_folder = false,
 					side = "left",
 					-- auto_resize = true,
 					number = false,
@@ -618,5 +617,29 @@ return {
 				hl = { underline = true },
 			},
 		},
+	},
+	-- Adds better text object to operate such as ci, cA,
+	{
+		"wellle/targets.vim",
+		event = "VeryLazy",
+	},
+	--
+	{
+		"RRethy/vim-illuminate",
+		opts = {
+			delay = 50,
+		},
+		config = function(_, opts)
+			require("illuminate").configure(opts)
+			vim.cmd [[
+augroup illuminate_augroup
+    autocmd!
+    autocmd VimEnter * hi illuminatedWord cterm=underline gui=underline
+    autocmd VimEnter * hi illuminatedWordRead cterm=underline gui=underline
+    autocmd VimEnter * hi illuminatedWordWrite cterm=underline gui=underline
+    autocmd VimEnter * hi illuminatedWordText cterm=underline gui=underline
+augroup END
+			]]
+		end,
 	},
 }

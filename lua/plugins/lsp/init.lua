@@ -10,10 +10,7 @@ return {
 			{ "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
 			"mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
-			{
-				"hrsh7th/cmp-nvim-lsp",
-				cond = function() return Util.has "nvim-cmp" end,
-			},
+			"hrsh7th/cmp-nvim-lsp",
 		},
 		---@class PluginLspOpts
 		opts = {
@@ -74,6 +71,9 @@ return {
 						usePlaceholders = true,
 						completeUnimported = true,
 						semanticHighlighting = true,
+					},
+					capabilities = {
+						offsetEncoding = { "gbk" },
 					},
 				},
 				html = {},
@@ -177,6 +177,7 @@ return {
 				configs[Util.CUSTOM_LSP.XY3_LUA] = {
 					default_config = {
 						cmd = { Util.is_win() and "luahelper-lsp.cmd" or "luahelper-lsp", "--mode=1" },
+						-- cmd = vim.lsp.rpc.connect("127.0.0.1", 7778),
 						filetypes = { "lua", "pto", "tbl" },
 						root_dir = require("lspconfig").util.root_pattern(Util.lsp_root_patterns),
 						init_options = {
@@ -195,8 +196,13 @@ return {
 			end
 
 			local function setup(server)
+				local server_capabilities = capabilities
+				if servers[server] and servers[server].capabilities then
+					server_capabilities =
+						vim.tbl_deep_extend("force", server_capabilities, servers[server].capabilities)
+				end
 				local server_opts = vim.tbl_deep_extend("force", {
-					capabilities = vim.deepcopy(capabilities),
+					capabilities = server_capabilities,
 				}, servers[server] or {})
 
 				if opts.setup[server] then
@@ -323,6 +329,7 @@ return {
 		"j-hui/fidget.nvim",
 		event = "LspAttach",
 		opts = {},
+		tag = "legacy",
 	},
 
 	-- preview window for lsp
@@ -331,5 +338,14 @@ return {
 		opts = {
 			default_mappings = true,
 		},
+	},
+	-- A pretty list for showing diagnostics, references, telescope results, quickfix and location lists to help you solve all the trouble your code is causing.
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {
+			mode = "document_diagnostics",
+		},
+		keys = { { "<leader>ct", "<cmd>TroubleToggle<cr>", desc = "TroubleToggle" } },
 	},
 }
