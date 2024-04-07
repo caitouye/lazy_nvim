@@ -212,8 +212,8 @@ end
 
 function M.is_dh3(path)
 	if path:find "Sunshine" then return end
-	-- if path:find "dh3" or path:find "dh25" then return true end
-	if path:find "dh3" or path:find "dh25" or path:find "dhxy" then return true end
+	if path:find "dh3" or path:find "dh25" then return true end
+	if path:find "dhxy" then return true end
 end
 
 function M.is_gbk(path)
