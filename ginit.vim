@@ -13,6 +13,7 @@
 " 终端更纱黑体-简 Nerd		yes		yes			yes		yes			yes
 " Maple Mono SC NF			yes		yes			yes		yes			no
 " Maple Mono				yes		yes			yes		yes			no
+" 霞鹜文楷等宽 GB			part	part		no		yes			part
 
 
 if exists('g:fvim_loaded')
@@ -25,14 +26,16 @@ if exists('g:fvim_loaded')
 		" set guifont=JetBrains\ Mono:h16
 		" set guifont=Hack:h16
 		" set guifont=等距更纱黑体\ SC:h18
-		set guifont=终端更纱黑体-简\ Nerd:h18
+		" set guifont=终端更纱黑体-简\ Nerd:h18
 		" set guifont=Maple\ Mono\ SC\ NF:h16
 		" set guifont=Maple\ Mono:h16
+		set guifont=霞鹜文楷等宽\ GB:h18
 
 		" 只有这些支持中文
 		" set guifontwide=等距更纱黑体\ SC:h18
-		set guifontwide=终端更纱黑体-简\ Nerd:h18
+		" set guifontwide=终端更纱黑体-简\ Nerd:h18
 		" set guifontwide=Maple\ Mono\ SC\ NF:h16
+		set guifontwide=霞鹜文楷等宽\ GB:h18
 	else
 		set guifont=Cascadia\ Code:h28
 	endif
