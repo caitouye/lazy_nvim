@@ -13,7 +13,10 @@
 " 终端更纱黑体-简 Nerd		yes		yes			yes		yes			yes
 " Maple Mono SC NF			yes		yes			yes		yes			no
 " Maple Mono				yes		yes			yes		yes			no
-" 霞鹜文楷等宽 GB			part	part		no		yes			part
+" 霞鹜文楷等宽 GB			part	no			no		yes			no
+
+
+" :NvimWebDeviconsHiTest
 
 
 if exists('g:fvim_loaded')
