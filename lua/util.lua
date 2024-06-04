@@ -218,6 +218,7 @@ end
 
 function M.is_gbk(path)
 	if path:find "popo_tool" then return end
+	if path:find "大话3助手" then return end
 	return M.is_dh3(path)
 end
 
