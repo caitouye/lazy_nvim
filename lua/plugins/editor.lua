@@ -627,21 +627,6 @@ return {
 		-- build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 		-- enabled = vim.fn.executable "cmake",
 	},
-	{
-		"yamatsum/nvim-cursorline",
-		opts = {
-			cursorline = {
-				enable = true,
-				timeout = 1000,
-				number = false,
-			},
-			cursorword = {
-				enable = true,
-				min_length = 3,
-				hl = { underline = true },
-			},
-		},
-	},
 	-- Adds better text object to operate such as ci, cA,
 	{
 		"wellle/targets.vim",
